@@ -17,7 +17,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class WebConfig extends WebMvcConfigurerAdapter {
     
     public void addResourceHandlers(final ResourceHandlerRegistry registry){
-        registry.addResourceHandler("/*.jsp").addResourceLocations("/WEB-INF/jsp/");
+        registry.addResourceHandler("/*.js").addResourceLocations("/WEB-INF/js/");
+        registry.addResourceHandler("/*.css").addResourceLocations("/WEB-INF/css/");
     }
     
 }

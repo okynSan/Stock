@@ -8,12 +8,13 @@
         <title>JSP Page</title>
         <link rel="stylesheet" type="text/css"
               href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <script type=”text/javascript” src=”bootstrap/js/bootstrap.min.js”></script>
     </head>
 
 
     <body>
 
-             
+
         <div id="base_form" align = "left" >
             <div class="payment_table">
                 <table border="1" >
@@ -42,23 +43,23 @@
                     <table>
                         <tr>
                             <td>
-                                <form:label path="id">ID:</form:label>
-                            </td>
-                            <td>
-                                <form> 
-                                    <input  path="id" value="${payment.id}"/>
-                                </form>
-                            </td>
+                        <form:label path="id">ID:</form:label>
+                        </td>
+                        <td>
+                            <form> 
+                                <input  path="id" value="${payment.id}"/>
+                            </form>
+                        </td>
                         </tr>
                         <tr>
                             <td>
-                                <form:label path="id">Month:</form:label>
-                            </td>
-                            <td>
-                                <form>
-                                    <input type="text" value="${payment.month}"/>
-                                </form>
-                            </td>
+                        <form:label path="id">Month:</form:label>
+                        </td>
+                        <td>
+                            <form>
+                                <input type="text" value="${payment.month}"/>
+                            </form>
+                        </td>
                         </tr>
                     </table> 
                 </form:form>

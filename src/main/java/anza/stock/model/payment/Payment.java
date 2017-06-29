@@ -3,21 +3,38 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package anza.stock.controller.model.payment;
+package anza.stock.model.payment;
 
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author andrey_zatvornitskiy
  */
+@Entity
+@Table(name = "payments")
 public class Payment {
-    
-    private int id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    @Column(name = "month")
     private Date month;
+    @Column(name = "name_od_payment")
     private String nameOfPayment;
+    @Column(name = "sum")
     private float sum;
+    @Column(name = "payer")
     private String payer;
+
+    public Payment() {
+    }
 
     public Payment(int id, Date month, String nameOfPayment, float sum, String payer) {
         this.id = id;
@@ -27,11 +44,11 @@ public class Payment {
         this.payer = payer;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -66,5 +83,5 @@ public class Payment {
     public void setPayer(String payer) {
         this.payer = payer;
     }
-     
+
 }

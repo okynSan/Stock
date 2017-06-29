@@ -5,13 +5,12 @@
  */
 package anza.stock.controller.main;
 
-import anza.stock.controller.model.payment.Payment;
-import java.util.Arrays;
-import java.util.Date;
+import anza.stock.model.payment.Payment;
+import anza.stock.service.payment.IPaymentService;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -21,6 +20,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MainController {
 
+    @Autowired
+    IPaymentService iPaymentService;
+
     @RequestMapping(value = "/")
     public ModelAndView getHello() {
         ModelAndView modelAndView = new ModelAndView();
@@ -28,16 +30,10 @@ public class MainController {
         modelAndView.setViewName("index");
         return modelAndView;
     }
-    
-    @RequestMapping(value = "/addPayment", method = RequestMethod.POST)
-    public ModelAndView savePayment(){
-        
-    }
-    
 
-    private List getPayments() {
-        Payment p = new Payment(1, new Date(), "Аванс", 50.5f, "andrey_zatvornickiy");
-        return Arrays.asList(p);        
+    private List<Payment> getPayments() {
+
+        return iPaymentService.getAllPaymentsList();
     }
 
 }
